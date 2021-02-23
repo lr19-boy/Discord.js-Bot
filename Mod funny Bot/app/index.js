@@ -20,17 +20,6 @@ const { type } = require("os");
 
 const welcome = require("./welcome");
 
-client.giveawaysManager = new GiveawaysManager(client, {
-  storage: "./giveaways.json",
-  updateCountdownEvery: 5000,
-  default: {
-    botsCanWin: false,
-    exemptPermissions: ["MANAGE_MESSAGES", "ADMINISTRATOR"],
-    embedColor: "#a40000",
-    reaction: "🎉"
-  }
-});
-
 client.commands = new Discord.Collection();
 
 const prefix = "-";
@@ -118,37 +107,6 @@ client.on("message", async message => {
 
 client.on("message", async message => {
   if (message.author.bot) return;
-  if (message.channel.id === "") await message.delete();
-  if (
-    message.content.toLowerCase() === "-verify" &&
-    message.channel.id === "758659315690504216"
-  ) {
-    await message.delete().catch(err => console.log(err));
-    const role = message.guild.roles.cache.get("761528120107991060");
-    if (role) {
-      try {
-        await message.member.roles.add(role);
-        console.log("Role added!");
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  }
-});
-
-client.on("guildMemberAdd", member => {
-  console.log(member.user.tag);
-});
-
-const settings = new enmap({
-  name: "settings",
-  autoFetch: true,
-  cloneLevel: "deep",
-  fetchAll: true
-});
-
-client.on("message", async message => {
-  if (message.author.bot) return;
   if (message.content.indexOf(prefix) !== 0) return;
 
   const args = message.content
@@ -221,144 +179,6 @@ client.on("messageReactionAdd", async (reaction, user) => {
             .setColor("#a40000")
         );
       });
-  }
-});
-
-client.on("message", async message => {
-  let messageArray = message.content.split(" ");
-  const args = message.content.substring(message.content.indexOf(" ") + 1);
-  const command = messageArray[0];
-
-  if (command === `${prefix}roles`) {
-    let embed = new Discord.MessageEmbed()
-      .setTitle("Roles")
-      .setDescription("React to obtain your roles!")
-      .setFooter("If the bot is offline, Please try again later :-)")
-      .setThumbnail(
-        "https://cdn.discordapp.com/icons/743984192836075541/71c8170cd9b0322a76e1669612fd6d82.png"
-      )
-      .setColor("#a40000");
-
-    let msgEmbed = await message.channel.send(embed);
-    msgEmbed.react("🎧");
-    msgEmbed.react("💻");
-    msgEmbed.react("🖌");
-    msgEmbed.react("746059333594513547");
-    msgEmbed.react("📢");
-    msgEmbed.react("🎉");
-    msgEmbed.react("📊");
-  }
-});
-
-client.on("messageReactionAdd", async (reaction, user) => {
-  if (reaction.message.partial) await reaction.message.fetch();
-  if (reaction.partial) await reaction.fetch();
-
-  if (user.client) return;
-  if (reaction.message.channel.id === "744002012743598080") {
-    if (reaction.emoji.name === "🎧") {
-      await reaction.message.guild.memebers.cache
-        .get(user.id)
-        .role.add("747965218444804116");
-    }
-  }
-});
-
-client.on("messageReactionAdd", async (reaction, user) => {
-  if (reaction.message.partial) await reaction.message.fetch();
-  if (reaction.partial) await reaction.fetch();
-
-  if (user.client) return;
-  if (reaction.message.channel.id === "744002012743598080") {
-    if (reaction.emoji.name === "💻") {
-      await reaction.message.guild.memebers.cache
-        .get(user.id)
-        .role.add("747966515768459366");
-    }
-  }
-});
-
-client.on("messageReactionAdd", async (reaction, user) => {
-  if (reaction.message.partial) await reaction.message.fetch();
-  if (reaction.partial) await reaction.fetch();
-
-  if (user.client) return;
-  if (reaction.message.channel.id === "744002012743598080") {
-    if (reaction.emoji.name === "🖌") {
-      await reaction.message.guild.memebers.cache
-        .get(user.id)
-        .role.add("747966404183195740");
-    }
-  }
-});
-
-client.on("messageReactionAdd", async (reaction, user) => {
-  if (reaction.message.partial) await reaction.message.fetch();
-  if (reaction.partial) await reaction.fetch();
-
-  if (user.client) return;
-  if (reaction.message.channel.id === "744002012743598080") {
-    if (reaction.emoji.name === "📰") {
-      await reaction.message.guild.memebers.cache
-        .get(user.id)
-        .role.add("747965137763172392");
-    }
-  }
-});
-
-client.on("messageReactionAdd", async (reaction, user) => {
-  if (reaction.message.partial) await reaction.message.fetch();
-  if (reaction.partial) await reaction.fetch();
-
-  if (user.client) return;
-  if (reaction.message.channel.id === "744002012743598080") {
-    if (reaction.emoji.name === "746059333594513547") {
-      await reaction.message.guild.memebers.cache
-        .get(user.id)
-        .role.add("743984654822146159");
-    }
-  }
-});
-
-client.on("messageReactionAdd", async (reaction, user) => {
-  if (reaction.message.partial) await reaction.message.fetch();
-  if (reaction.partial) await reaction.fetch();
-
-  if (user.client) return;
-  if (reaction.message.channel.id === "744002012743598080") {
-    if (reaction.emoji.name === "📢") {
-      await reaction.message.guild.memebers.cache
-        .get(user.id)
-        .role.add("743984655702687755");
-    }
-  }
-});
-
-client.on("messageReactionAdd", async (reaction, user) => {
-  if (reaction.message.partial) await reaction.message.fetch();
-  if (reaction.partial) await reaction.fetch();
-
-  if (user.client) return;
-  if (reaction.message.channel.id === "744002012743598080") {
-    if (reaction.emoji.name === "🎉") {
-      await reaction.message.guild.memebers.cache
-        .get(user.id)
-        .role.add("746057906205622444");
-    }
-  }
-});
-
-client.on("messageReactionAdd", async (reaction, user) => {
-  if (reaction.message.partial) await reaction.message.fetch();
-  if (reaction.partial) await reaction.fetch();
-
-  if (user.client) return;
-  if (reaction.message.channel.id === "744002012743598080") {
-    if (reaction.emoji.name === "📊") {
-      await reaction.message.guild.memebers.cache
-        .get(user.id)
-        .role.add("745788287217696849");
-    }
   }
 });
 
