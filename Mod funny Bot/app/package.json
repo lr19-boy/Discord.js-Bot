@@ -1,0 +1,49 @@
+{
+  "//1": "describes your app and its dependencies",
+  "//2": "https://docs.npmjs.com/files/package.json",
+  "//3": "updating this file will download and update your packages",
+  "name": "NightHowler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "discord-giveaways": "^4.2.1",
+    "discord-leveling": "^1.1.0",
+    "discord.js": "^12.3.1",
+    "discord.js-commando": "^0.10.0",
+    "discord.js-pagination": "^1.0.1",
+    "ffmpeg-static": "^4.2.7",
+    "figlet": "^1.5.0",
+    "mathjs": "^7.2.0",
+    "ms": "^2.1.2",
+    "node-fetch": "^2.6.0",
+    "node-opus": "^0.3.3",
+    "novelcovid": "^3.0.0",
+    "parse-ms": "^2.1.0",
+    "quick-db": "^1.0.5",
+    "quick.db": "^7.1.1",
+    "random-puppy": "^1.1.0",
+    "weather-js": "^2.0.0",
+    "ytdl-core": "^3.2.2",
+    "dotenv": "^8.2.0",
+    "http": "^0.0.0",
+    "enmap": "^5.7.1",
+    "moment": "^2.27.0"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/hello-express"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
