@@ -16,6 +16,7 @@ module.exports = {
       .addField("`-warnings`", "check a users warnings")
       .setTimestamp()
       .setColor("#ffffff");
+      .setFooter("Requested by " + message.author.tag, message.author.displayAvatarURL())
 
     const fun = new Discord.MessageEmbed()
       .setTitle("Fun")
@@ -29,6 +30,7 @@ module.exports = {
       .addField("`-hello`", "Telling the bot hi to user")
       .setTimestamp()
       .setColor("#ffffff");
+      .setFooter("Requested by " + message.author.tag, message.author.displayAvatarURL())
 
     const utility = new Discord.MessageEmbed()
       .setTitle("Utlity")
@@ -43,6 +45,7 @@ module.exports = {
       )
       .setTimestamp()
       .setColor("#ffffff");
+      .setFooter("Requested by " + message.author.tag, message.author.displayAvatarURL())
 
     const pages = [moderation, fun, utility];
 
